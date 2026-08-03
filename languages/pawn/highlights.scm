@@ -2,17 +2,15 @@
 (identifier) @variable
 
 ; Definitions, references, and calls
-; Use a standard distinct capture for definitions because themes commonly
-; resolve function.definition to the same style as function.
-(function_definition name: (identifier) @function.definition @type)
-(function_declaration name: (identifier) @function.definition @type)
+(function_definition name: (identifier) @function)
+(function_declaration name: (identifier) @function)
 (field_access field: (identifier) @property)
 (call_expression
   function: (field_access
-    field: (identifier) @function.method))
+    field: (identifier) @type))
 (call_expression
   function: (primary_expression
-    (identifier) @function))
+    (identifier) @type))
 (label_statement name: (identifier) @label)
 
 ; Parameters and variables
