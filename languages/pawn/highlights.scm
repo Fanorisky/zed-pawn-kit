@@ -72,6 +72,7 @@
   "forward"
   "native"
   "inline"
+  "using"
   "hook"
   "task"
   "ptask"
@@ -124,10 +125,10 @@
 ((identifier) @constant
   (#match? @constant "^[A-Z][A-Z\\d_]+$"))
 
-; Task tags in comments.
+; Task tags in comments, matching the PocketPawn TextMate grammar.
 ((comment) @text.todo
-  (#match? @text.todo "^//[\\t ]*(TODO|FIXME)\\b|^/\\*[\\t ]*(TODO|FIXME)\\b"))
+  (#match? @text.todo "(^|[^A-Za-z0-9_])@?TODO\\b"))
 ((comment) @text.note
-  (#match? @text.note "^//[\\t ]*(NOTE|NB)\\b|^/\\*[\\t ]*(NOTE|NB)\\b"))
+  (#match? @text.note "(^|[^A-Za-z0-9_])@?(TBD|REVIEW|NOTE|NB|CHANGED|IDEA|IMPORTANT|HACK)\\b"))
 ((comment) @text.warning
-  (#match? @text.warning "^//[\\t ]*(WARNING|BUG)\\b|^/\\*[\\t ]*(WARNING|BUG)\\b"))
+  (#match? @text.warning "(^|[^A-Za-z0-9_])@?(FIXME|XXX|WTF|WARNING|BUG)\\b"))

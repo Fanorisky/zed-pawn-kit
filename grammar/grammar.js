@@ -126,6 +126,7 @@ module.exports = grammar({
       'stock',
       'static',
       'inline',
+      'using',
       'hook',
       'task',
       'ptask',

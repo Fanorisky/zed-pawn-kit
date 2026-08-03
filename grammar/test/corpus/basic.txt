@@ -124,3 +124,15 @@ enum E_PLAYER_DATA
       (identifier)
       (primary_expression
         (int_literal)))))
+
+==================
+Pawn using modifier
+==================
+using Callback();
+---
+
+(source_file
+  (function_declaration
+    (function_modifier)
+    (identifier)
+    (parameter_list)))

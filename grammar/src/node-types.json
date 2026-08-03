@@ -1754,6 +1754,10 @@
     "named": false
   },
   {
+    "type": "using",
+    "named": false
+  },
+  {
     "type": "void",
     "named": false
   },
