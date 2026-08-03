@@ -2,8 +2,10 @@
 (identifier) @variable
 
 ; Definitions, references, and calls
-(function_definition name: (identifier) @function.definition)
-(function_declaration name: (identifier) @function.definition)
+; Use a standard distinct capture for definitions because themes commonly
+; resolve function.definition to the same style as function.
+(function_definition name: (identifier) @function.definition @type)
+(function_declaration name: (identifier) @function.definition @type)
 (field_access field: (identifier) @property)
 (call_expression
   function: (field_access
@@ -31,7 +33,7 @@
   "#" @punctuation.special
   ["include" "tryinclude"] @keyword)
 (preproc_define
-  "#" @punctuation.special
+  "#" @keyword
   "define" @keyword
   name: (identifier) @constant)
 (preproc_undef
