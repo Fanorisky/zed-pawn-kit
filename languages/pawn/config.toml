@@ -1,0 +1,4 @@
+name = "Pawn"
+grammar = "pawn"
+path_suffixes = ["p", "pwn", "inc"]
+line_comments = ["//"]

@@ -1,0 +1,13 @@
+id = "pawn"
+name = "Pawn"
+version = "0.1.0"
+schema_version = 1
+authors = ["tsuza <tsuza@proton.me>"]
+description = "Pawn language support for the Zed Editor, based on the PocketPawn kit."
+repository = "https://github.com/Fanorisky/zed-pawn-kit"
+snippets = ["./snippets/pawn.json", "./snippets/pawn-completions.json"]
+
+[grammars.pawn]
+repository = "https://github.com/Fanorisky/zed-pawn-kit"
+rev = "main"
+path = "grammar"

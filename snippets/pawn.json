@@ -1,0 +1,162 @@
+{
+  "ALS Callback": {
+    "prefix": "ALS",
+    "description": "AlliedModders-style callback hook",
+    "body": [
+      "public ${2:Function}(${3:Args})",
+      "{",
+      "\t${4}",
+      "\t#if defined ${1:Prefix}_${2:Function}",
+      "\t\treturn ${1:Prefix}_${2:Function}(${3:Args});",
+      "\t#else",
+      "\t\treturn 1;",
+      "\t#endif",
+      "}",
+      "#if defined _ALS_${2:Function}",
+      "\t#undef ${2:Function}",
+      "#else",
+      "\t#define _ALS_${2:Function}",
+      "#endif",
+      "",
+      "#define ${2:Function} ${1:Prefix}_${2:Function}",
+      "#if defined ${1:Prefix}_${2:Function}",
+      "\tforward ${1:Prefix}_${2:Function}(${3:Args});",
+      "#endif",
+      "$0"
+    ]
+  },
+  "ALS Function": {
+    "prefix": "ALS",
+    "description": "AlliedModders-style function hook",
+    "body": [
+      "stock ${1:Prefix}_${2:Function}(${3:args})",
+      "{",
+      "\t${4}",
+      "\treturn ${2}(${3});",
+      "}",
+      "#if defined _ALS_${2}",
+      "\t#undef ${2}",
+      "#else",
+      "\t#define _ALS_${2}",
+      "#endif",
+      "",
+      "#define ${2} ${1:Prefix}_${2}",
+      "$0"
+    ]
+  },
+  "DialogCreate": {
+    "prefix": "DialogCreate:",
+    "description": "mdialog.inc DialogCreate callback",
+    "body": [
+      "DialogCreate:${1:dialog_name}(playerid)",
+      "{",
+      "\t${4}",
+      "\treturn 1;",
+      "}",
+      "$0"
+    ]
+  },
+  "DialogInterrupt": {
+    "prefix": "DialogInterrupt:",
+    "description": "mdialog.inc DialogInterrupt callback",
+    "body": [
+      "DialogInterrupt:${1:dialog_name}(playerid)",
+      "{",
+      "\t${4}",
+      "\treturn 1;",
+      "}",
+      "$0"
+    ]
+  },
+  "DialogResponse": {
+    "prefix": "DialogResponse:",
+    "description": "mdialog.inc DialogResponse callback",
+    "body": [
+      "DialogResponse:${1:dialog_name}(playerid, response, listitem, inputtext[])",
+      "{",
+      "\t${4}",
+      "\treturn 1;",
+      "}",
+      "$0"
+    ]
+  },
+  "endinput": {
+    "prefix": "endinput",
+    "description": "Guard an include with #endinput",
+    "body": [
+      "#if defined ${1:SYMBOL}",
+      "    #endinput",
+      "#endif",
+      "#define ${1:SYMBOL}",
+      "$0"
+    ]
+  },
+  "enum": {
+    "prefix": "enum",
+    "description": "Pawn enum declaration",
+    "body": [
+      "enum ${1:e_}",
+      "{",
+      "\t${4}",
+      "};",
+      "$0"
+    ]
+  },
+  "if not defined": {
+    "prefix": "def",
+    "description": "#if !defined / #define block",
+    "body": [
+      "#if !defined ${1:SYMBOL}",
+      "\t#define ${1:SYMBOL} ${2:value}",
+      "#endif",
+      "$0"
+    ]
+  },
+  "if defined undef define": {
+    "prefix": "undef",
+    "description": "#if defined / #undef / #define block",
+    "body": [
+      "#if defined ${1:SYMBOL}",
+      "\t#undef ${1:SYMBOL}",
+      "#endif",
+      "#define ${1:SYMBOL} ${2:value}",
+      "$0"
+    ]
+  },
+  "if defined undef": {
+    "prefix": "undef",
+    "description": "#if defined / #undef block",
+    "body": [
+      "#if defined ${1:SYMBOL}",
+      "    #undef ${1:SYMBOL}",
+      "#endif",
+      "$0"
+    ]
+  },
+  "include relative": {
+    "prefix": "include",
+    "description": "Include a relative Pawn file",
+    "body": [
+      "#include \"${1:}\"$0"
+    ]
+  },
+  "include system": {
+    "prefix": "include",
+    "description": "Include a system Pawn file",
+    "body": [
+      "#include <${1:}>$0"
+    ]
+  },
+  "Pawn.CMD": {
+    "prefix": "CMD",
+    "description": "Pawn.CMD.inc command callback",
+    "body": [
+      "CMD:${1:command_name}(playerid, params[])",
+      "{",
+      "\t${4}",
+      "\treturn 1;",
+      "}",
+      "$0"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "tree-sitter-pawn",
+  "version": "0.1.0",
+  "description": "Tree-sitter grammar for the Pawn programming language",
+  "private": true,
+  "main": "grammar.js",
+  "scripts": {
+    "generate": "tree-sitter generate",
+    "test": "tree-sitter test"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.25.8"
+  }
+}

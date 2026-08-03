@@ -1,0 +1,126 @@
+==================
+Pawn declarations and control flow
+==================
+#include <a_samp>
+#define MAX_PLAYERS 100
+
+new Float:positions[MAX_PLAYERS][3];
+forward Float:GetDistance(playerid, const Float:position[]);
+
+public OnPlayerConnect(playerid)
+{
+    new name[MAX_PLAYER_NAME];
+    GetPlayerName(playerid, name, sizeof(name));
+    if (playerid >= 0 && playerid < MAX_PLAYERS)
+    {
+        positions[playerid][0] = 0.0;
+    }
+    return 1;
+}
+
+enum E_PLAYER_DATA
+{
+    PLAYER_ID,
+    Float:PLAYER_HEALTH = 100
+};
+---
+
+(source_file
+  (preprocessor
+    (preproc_include
+      (system_lib_string)))
+  (preprocessor
+    (preproc_define
+      (identifier)))
+  (global_variable_declaration
+    (variable_declarator
+      (tagged_type
+        (identifier))
+      (identifier)
+      (dimension
+        (primary_expression
+          (identifier)))
+      (dimension
+        (primary_expression
+          (int_literal)))))
+  (function_declaration
+    (function_modifier)
+    (type
+      (tagged_type
+        (identifier)))
+    (identifier)
+    (parameter_list
+      (parameter_declaration
+        (identifier))
+      (parameter_declaration
+        (tagged_type
+          (identifier))
+        (identifier)
+        (dimension))))
+  (function_definition
+    (function_modifier)
+    (identifier)
+    (parameter_list
+      (parameter_declaration
+        (identifier)))
+    (block
+      (variable_declaration
+        (variable_declarator
+          (identifier)
+          (dimension
+            (primary_expression
+              (identifier)))))
+      (expression_statement
+        (call_expression
+          (primary_expression
+            (identifier))
+          (argument_list
+            (primary_expression
+              (identifier))
+            (primary_expression
+              (identifier))
+            (sizeof_expression
+              (parenthesized_expression
+                (primary_expression
+                  (identifier)))))))
+      (if_statement
+        (parenthesized_expression
+          (binary_expression
+            (binary_expression
+              (primary_expression
+                (identifier))
+              (primary_expression
+                (int_literal)))
+            (binary_expression
+              (primary_expression
+                (identifier))
+              (primary_expression
+                (identifier)))))
+        (block
+          (expression_statement
+            (assignment_expression
+              (array_indexed_access
+                (array_indexed_access
+                  (primary_expression
+                    (identifier))
+                  (dimension
+                    (primary_expression
+                      (identifier))))
+                (dimension
+                  (primary_expression
+                    (int_literal))))
+              (primary_expression
+                (float_literal))))))
+      (return_statement
+        (primary_expression
+          (int_literal)))))
+  (enum_declaration
+    (identifier)
+    (enum_entry
+      (identifier))
+    (enum_entry
+      (tagged_type
+        (identifier))
+      (identifier)
+      (primary_expression
+        (int_literal)))))

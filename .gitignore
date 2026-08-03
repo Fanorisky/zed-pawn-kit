@@ -1,0 +1,4 @@
+extension.wasm
+grammars/
+target/
+grammar/node_modules/
