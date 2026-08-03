@@ -24,7 +24,8 @@
 
 ; Function calls
 (call_expression
-  function: (identifier) @name) @reference.call
+  function: (primary_expression
+    (identifier) @name)) @reference.call
 (call_expression
   function: (field_access
     field: (identifier) @name)) @reference.call

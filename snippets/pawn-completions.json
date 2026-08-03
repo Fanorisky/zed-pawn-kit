@@ -2243,7 +2243,7 @@
     "prefix": "MDialog_strlen",
     "description": "mdialog.inc",
     "body": [
-      "MDialog_strlen(${const string[]})$0"
+      "MDialog_strlen(${1:const string[]})$0"
     ]
   },
   "omp_actor.inc: MAX_ACTORS": {
@@ -2418,14 +2418,14 @@
     "prefix": "OnActorStreamIn",
     "description": "omp_actor.inc",
     "body": [
-      "OnActorStreamIn(${1:actorid, ${2:forplayerid})$0"
+      "OnActorStreamIn(${1:actorid}, ${2:forplayerid})$0"
     ]
   },
   "omp_actor.inc: OnActorStreamOut": {
     "prefix": "OnActorStreamOut",
     "description": "omp_actor.inc",
     "body": [
-      "OnActorStreamOut(${1:actorid, ${2:forplayerid})$0"
+      "OnActorStreamOut(${1:actorid}, ${2:forplayerid})$0"
     ]
   },
   "omp_checkpoint.inc: CP_TYPE": {

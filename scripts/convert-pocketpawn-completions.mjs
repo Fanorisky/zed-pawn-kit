@@ -10,6 +10,20 @@ if (!sourceDirectory) {
 }
 
 const snippets = {};
+const completionCorrections = new Map([
+  [
+    'mdialog.inc: MDialog_strlen',
+    'MDialog_strlen(${1:const string[]})$0',
+  ],
+  [
+    'omp_actor.inc: OnActorStreamIn',
+    'OnActorStreamIn(${1:actorid}, ${2:forplayerid})$0',
+  ],
+  [
+    'omp_actor.inc: OnActorStreamOut',
+    'OnActorStreamOut(${1:actorid}, ${2:forplayerid})$0',
+  ],
+]);
 const files = fs.readdirSync(sourceDirectory)
   .filter(file => file.endsWith('.sublime-completions'))
   .sort();
@@ -29,10 +43,11 @@ for (const file of files) {
 
     const contents = String(completion.contents ?? trigger);
     const key = `${annotation}: ${trigger}`;
+    const correctedContents = completionCorrections.get(key) ?? contents;
     snippets[key] = {
       prefix: trigger,
       description: completion.annotation ?? annotation,
-      body: [contents.includes('$0') ? contents : `${contents}$0`],
+      body: [correctedContents.includes('$0') ? correctedContents : `${correctedContents}$0`],
     };
   }
 }

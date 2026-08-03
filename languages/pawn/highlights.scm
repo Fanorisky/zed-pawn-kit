@@ -4,7 +4,9 @@
 ; Definitions and calls
 (function_definition name: (identifier) @function)
 (function_declaration name: (identifier) @function)
-(call_expression function: (identifier) @function)
+(call_expression
+  function: (primary_expression
+    (identifier) @function))
 (call_expression function: (field_access field: (identifier) @function))
 (field_access field: (identifier) @property)
 
