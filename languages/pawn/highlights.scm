@@ -2,12 +2,12 @@
 (identifier) @variable
 
 ; Definitions, references, and calls
-(function_definition name: (identifier) @function)
-(function_declaration name: (identifier) @function)
+(function_definition name: (identifier) @function.definition)
+(function_declaration name: (identifier) @function.definition)
 (field_access field: (identifier) @property)
 (call_expression
   function: (field_access
-    field: (identifier) @function))
+    field: (identifier) @function.method))
 (call_expression
   function: (primary_expression
     (identifier) @function))

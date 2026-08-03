@@ -9,5 +9,5 @@ snippets = ["./snippets/pawn.json", "./snippets/pawn-completions.json"]
 
 [grammars.pawn]
 repository = "https://github.com/Fanorisky/zed-pawn-kit"
-rev = "main"
+rev = "8c5dda9825d7aecd95ab34932a03877795f75113"
 path = "grammar"
