@@ -30,24 +30,24 @@
 
 ; Preprocessor directives
 (preproc_include
-  "#" @punctuation.special
+  "#" @keyword
   ["include" "tryinclude"] @keyword)
 (preproc_define
   "#" @keyword
   "define" @keyword
   name: (identifier) @constant)
 (preproc_undef
-  "#" @punctuation.special
+  "#" @keyword
   "undef" @keyword
   name: (identifier) @constant)
 (preproc_conditional
-  "#" @punctuation.special
+  "#" @keyword
   ["if" "elseif" "else" "endif" "ifdef" "ifndef"] @keyword)
 (preproc_diagnostic
-  "#" @punctuation.special
+  "#" @keyword
   ["assert" "error" "warning" "pragma" "emit" "endinput"] @keyword)
 (preproc_directive
-  "#" @punctuation.special
+  "#" @keyword
   directive: (identifier) @keyword)
 (system_lib_string) @string
 
