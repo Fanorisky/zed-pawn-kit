@@ -72,7 +72,6 @@
   "forward"
   "native"
   "inline"
-  "using"
   "hook"
   "task"
   "ptask"
@@ -124,6 +123,11 @@
 ; Constants written in the conventional Pawn style.
 ((identifier) @constant
   (#match? @constant "^[A-Z][A-Z\\d_]+$"))
+
+; `using` is matched by text so cached grammars without the newer token
+; can still compile this query while the updated grammar is downloaded.
+((_) @keyword
+  (#match? @keyword "^using$"))
 
 ; Task tags in comments, matching the PocketPawn TextMate grammar.
 ((comment) @text.todo
